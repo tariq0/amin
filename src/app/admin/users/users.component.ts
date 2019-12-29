@@ -1,3 +1,4 @@
+import { UsersService } from './../services/users.service';
 import { Pagination } from './../common/pagination';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
@@ -21,7 +22,7 @@ export class UsersComponent implements OnInit, Pagination {
   maxHeightView:any='1000px'; 
   getPage(page, perpage, baseUrl, filter) { }
 
-  constructor(private toastr: ToastrService) { }
+  constructor(private toastr: ToastrService, private usersService: UsersService) { }
 
   showSuccess() {
     this.toastr.success('Hello world!', 'Toastr fun!');
@@ -55,10 +56,15 @@ export class UsersComponent implements OnInit, Pagination {
     this.perPage = 10;
     this.numberOfPages = 10;
     
+    this.usersService.getAll();
+    this.usersService.delete(10);
+    this.usersService.getById(1);
   }
+
   onNext(){
     this.page ++;
   }
+
   onPrevious(){
     if(this.page === 0 || this.page === 1){}
     else this.page --;
@@ -66,6 +72,7 @@ export class UsersComponent implements OnInit, Pagination {
   log(message){
     console.log(message);
   }
+
   toggle(t1,t2){
     if(this.maxHeightCreate === 0){
       this.maxHeightCreate = t1.scrollHeight + 'px';
