@@ -1,0 +1,95 @@
+<p class="mt-4"></p>
+<h4 class="d-inline ">Publications /</h4>
+<!----------------------------------->
+
+<a (click)="toggle(toggle1,toggle2)" class="menu-button dropdown-toggle">
+  {{ menuText}}
+</a>
+
+<div #toggle1 style="transition: max-height 2s;overflow: hidden" [style.maxHeight]="maxHeightCreate">
+
+  <div class="card card-body">
+
+    <!--   ------------------ user create form     ----------------     -->
+    <form>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1">
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
+  </div>
+
+</div>
+<div id="toggle2" #toggle2 style="transition: max-height 2s;overflow: hidden" [style.maxHeight]="maxHeightView">
+
+  <div>
+    <div class="table-responsive">
+      <table class="table table-hover table-sm mt-4">
+        <thead class="text-light bg-cadet-blue">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Date </th>
+           
+            <th scope="col" >Edit</th>
+            <th scope="col" >Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let doc of data">
+            <th scope="row">{{ doc._id}}</th>
+            <td>{{ doc.nameEn}}</td>
+            <td>{{ doc.date | date }}</td>
+           
+            <td class="w-10">
+              <i class="material-icons edit-icon">
+                create
+              </i>
+            </td>
+            <td class="w-10">
+              <i class="material-icons delete-icon">
+                delete
+              </i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+
+    <div class="paginator">
+      <span (click)="onPrevious()" class="btn btn-light btn-sm">
+        <i class="material-icons">
+          arrow_back_ios
+        </i>
+      </span>
+
+      <span> &nbsp; &nbsp; {{ page }} &nbsp; &nbsp; </span>
+
+      <span (click)="onNext()" class="btn btn-light btn-sm">
+        <i class="material-icons">
+          arrow_forward_ios
+        </i>
+      </span>
+    </div>
+
+
+  </div>
+
+</div>
+
+<div style="height: 100px;">
+</div>
