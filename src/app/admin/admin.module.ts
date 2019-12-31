@@ -28,6 +28,9 @@ import { DepartmentCreateComponent } from './department-create/department-create
 import { NewsTableComponent } from './news-table/news-table.component';
 import { NewsCreateComponent } from './news-create/news-create.component';
 import { NewsUpdateComponent } from './news-update/news-update.component';
+import { PhotoalbumTableComponent } from './photoalbum-table/photoalbum-table.component';
+import { PhotoalbumCreateComponent } from './photoalbum-create/photoalbum-create.component';
+import { PhotoalbumComponent } from './photoalbum/photoalbum.component';
 
 
 @NgModule({
@@ -51,7 +54,10 @@ import { NewsUpdateComponent } from './news-update/news-update.component';
     DepartmentCreateComponent,
     NewsTableComponent,
     NewsCreateComponent,
-    NewsUpdateComponent
+    NewsUpdateComponent,
+    PhotoalbumTableComponent,
+    PhotoalbumCreateComponent,
+    PhotoalbumComponent
   ],
   imports: [
     CommonModule,

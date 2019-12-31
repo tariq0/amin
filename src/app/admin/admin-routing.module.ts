@@ -13,6 +13,7 @@ import { CountriesComponent } from './countries/countries.component';
 import { UserComponent } from './user/user.component';
 import { DepartmentComponent } from './department/department.component';
 import { NewsUpdateComponent } from './news-update/news-update.component';
+import { PhotoalbumComponent } from './photoalbum/photoalbum.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
       {path: 'users', component: UsersComponent},
       {path: 'departments/:id', component: DepartmentComponent},
       {path: 'departments', component: DepartmentsComponent},
+      {path: 'photoalbums/:id', component: PhotoalbumComponent},
       {path: 'photoalbums', component: PhotoalbumsComponent},
       {path: 'news/:id', component: NewsUpdateComponent},
       {path: 'news', component: NewsComponent},
