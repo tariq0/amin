@@ -22,6 +22,9 @@ import { CountryCreateComponent } from './country-create/country-create.componen
 import { UserTableComponent } from './user-table/user-table.component';
 import { UserCreateComponent } from './user-create/user-create.component';
 import { UserComponent } from './user/user.component';
+import { DepartmentTableComponent } from './department-table/department-table.component';
+import { DepartmentComponent } from './department/department.component';
+import { DepartmentCreateComponent } from './department-create/department-create.component';
 
 
 @NgModule({
@@ -39,7 +42,10 @@ import { UserComponent } from './user/user.component';
     CountryCreateComponent,
     UserTableComponent,
     UserCreateComponent,
-    UserComponent
+    UserComponent,
+    DepartmentTableComponent,
+    DepartmentComponent,
+    DepartmentCreateComponent
   ],
   imports: [
     CommonModule,

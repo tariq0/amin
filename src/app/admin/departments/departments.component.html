@@ -1,5 +1,5 @@
 <p class="mt-4"></p>
-<h4 class="d-inline ">Departments /</h4>
+<h4 class="d-inline ">Departents /</h4>
 <!----------------------------------->
 
 <a (click)="toggle(toggle1,toggle2)" class="menu-button dropdown-toggle">
@@ -8,84 +8,52 @@
 
 <div #toggle1 style="transition: max-height 2s;overflow: hidden" [style.maxHeight]="maxHeightCreate">
 
-  <div class="card card-body">
-
-    <!--   ------------------ user create form     ----------------     -->
-    <form>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
-      </div>
-      <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-
-
+  <div class="card card-body mt-4">
+    <!--------------------  create form  -------------------->
+    <app-department-create></app-department-create>
   </div>
 
 </div>
-<div id="toggle2" #toggle2 style="transition: max-height 2s;overflow: hidden" [style.maxHeight]="maxHeightView">
+<div id="toggle2" #toggle2 style="transition: max-height 2s" [style.maxHeight]="maxHeightView"
+  [style.overflow]="overFlowView">
 
   <div>
-    <div class="table-responsive">
-      <table class="table table-hover table-sm mt-4">
-        <thead class="text-light bg-cadet-blue">
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let dep of data">
-            <th scope="row">{{ dep._id }}</th>
-            <td>{{ dep.nameEn }}</td>
-            <td class="w-10">
-              <i class="material-icons edit-icon">
-                create
-              </i>
-            </td>
-            <td class="w-10">
-              <i class="material-icons delete-icon">
-                delete
-              </i>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div *ngIf="showSpinner" class="spinner-border text-info" role="status"
+      style="position: absolute;top:35%;z-index: 100;left: 45%;">
+      <span class="sr-only">Loading...</span>
     </div>
 
+
+    <app-department-table [data]="data" (deleteRecord)="deleteRecord($event)">
+    </app-department-table>
 
 
     <div class="paginator">
-      <span (click)="onPrevious()" class="btn btn-light btn-sm">
+      <button (click)="onPrevious()" class="btn btn-light btn-sm" [disabled]="!previousState">
         <i class="material-icons">
           arrow_back_ios
         </i>
+      </button>
+
+      <span>
+        &nbsp; &nbsp;
+        {{ page }}/{{ numberOfPages}}
+        &nbsp; &nbsp;
       </span>
 
-      <span> &nbsp; &nbsp; {{ page }} &nbsp; &nbsp; </span>
-
-      <span (click)="onNext()" class="btn btn-light btn-sm">
+      <button (click)="onNext()" class="btn btn-light btn-sm" [disabled]="!nextState">
         <i class="material-icons">
           arrow_forward_ios
         </i>
-      </span>
+      </button>
     </div>
 
 
   </div>
 
 </div>
+
+
 
 <div style="height: 100px;">
 </div>

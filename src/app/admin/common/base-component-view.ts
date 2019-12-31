@@ -48,17 +48,7 @@ export class BaseComponentView {
         )
     }
 
-    createSubmit(fCreate) {
-        console.log(fCreate);
-        this.crudService.create(this.baseURL, fCreate.value)
-            .subscribe(
-                res => {
-                    console.log(res);
-                }
-                , err => {
-                    console.log(err);
-                });
-    }
+    
 
     deleteRecord(id) {
 
