@@ -25,6 +25,9 @@ import { UserComponent } from './user/user.component';
 import { DepartmentTableComponent } from './department-table/department-table.component';
 import { DepartmentComponent } from './department/department.component';
 import { DepartmentCreateComponent } from './department-create/department-create.component';
+import { NewsTableComponent } from './news-table/news-table.component';
+import { NewsCreateComponent } from './news-create/news-create.component';
+import { NewsUpdateComponent } from './news-update/news-update.component';
 
 
 @NgModule({
@@ -45,7 +48,10 @@ import { DepartmentCreateComponent } from './department-create/department-create
     UserComponent,
     DepartmentTableComponent,
     DepartmentComponent,
-    DepartmentCreateComponent
+    DepartmentCreateComponent,
+    NewsTableComponent,
+    NewsCreateComponent,
+    NewsUpdateComponent
   ],
   imports: [
     CommonModule,
