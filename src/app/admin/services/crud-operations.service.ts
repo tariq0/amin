@@ -17,8 +17,10 @@ export class CrudOperationsService {
     return this.http.get(URL);
   }
 
-  getBy(baseURL) {
+  getBy(baseURL, byWhatQueryString) {
     console.log('getBy get called');
+    const url = baseURL+'?'+byWhatQueryString;
+    return this.http.get(url);
   }
 
   getById(baseURL, id) {

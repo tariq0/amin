@@ -10,7 +10,7 @@ export class BaseComponentView {
     ) { }
 
     menuText = "View";
-    data;
+    data: any;
     nextState: boolean;
     previousState: boolean;
     page: number;
@@ -19,6 +19,7 @@ export class BaseComponentView {
     // pagination ui
     maxHeightCreate: any = 0;
     overFlowView = 'visible';
+    overFlowCreate = 'hidden';
     maxHeightView: any = '1000px';
     // delete ui
     showSpinner = false;
@@ -50,7 +51,7 @@ export class BaseComponentView {
 
     
 
-    deleteRecord(id) {
+    deleteRecord(id: any) {
 
         this.showSpinner = true;
 
@@ -89,25 +90,33 @@ export class BaseComponentView {
     }
 
 
-    log(message) {
+    log(message: any) {
         console.log(message);
     }
 
-    toggle(t1, t2) {
+    toggle(t1: { scrollHeight: string; }, t2: { scrollHeight: string; }) {
 
         console.dir(t2);
         if (this.maxHeightCreate === 0) {
-            this.maxHeightCreate = t1.scrollHeight + 'px';
+            
             this.maxHeightView = 0;
+            this.maxHeightCreate = t1.scrollHeight + 'px';
+            this.menuText = "Create New";
+            //this.overFlowCreate = 'visible';
             this.overFlowView = 'hidden';
-            this.menuText = "Ceate New";
+           
         } else {
 
             this.maxHeightCreate = 0;
             this.maxHeightView = t2.scrollHeight + 'px';
             this.menuText = "View";
+            this.overFlowCreate = 'hidden';
             this.overFlowView = 'visible';
             this.getData();
         }
+    }
+
+    addMaxHeightCreate(extraHieght: any){
+        this.maxHeightCreate = this.maxHeightCreate.split('px')[0] + extraHieght;
     }
 }

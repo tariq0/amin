@@ -1,16 +1,17 @@
 <p class="mt-4"></p>
-<h4 class="d-inline ">Departents /</h4>
+<h4 class="d-inline ">Departments /</h4>
 <!----------------------------------->
 
 <a (click)="toggle(toggle1,toggle2)" class="menu-button dropdown-toggle">
   {{ menuText}}
 </a>
 
-<div #toggle1 style="transition: max-height 2s;overflow: hidden" [style.maxHeight]="maxHeightCreate">
+<div #toggle1 style="transition: max-height 3s" [style.maxHeight]="maxHeightCreate" [style.overflow]="overFlowCreate" >
 
   <div class="card card-body mt-4">
     <!--------------------  create form  -------------------->
-    <app-department-create></app-department-create>
+    <app-department-create (additionalHieght)="addMaxHeightCreate($event)">
+    </app-department-create>
   </div>
 
 </div>

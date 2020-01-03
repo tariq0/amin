@@ -14,6 +14,7 @@ import { UserComponent } from './user/user.component';
 import { DepartmentComponent } from './department/department.component';
 import { NewsUpdateComponent } from './news-update/news-update.component';
 import { PhotoalbumComponent } from './photoalbum/photoalbum.component';
+import { PublicationComponent } from './publication/publication.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,7 @@ const routes: Routes = [
       {path: 'photoalbums', component: PhotoalbumsComponent},
       {path: 'news/:id', component: NewsUpdateComponent},
       {path: 'news', component: NewsComponent},
+      {path: 'publications/:id', component: PublicationComponent},
       {path: 'publications', component: PublicationsComponent},
       {path: 'countries/:id', component: CountryComponent, pathMatch: 'full'},
       {path: 'countries', component: CountriesComponent},

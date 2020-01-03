@@ -31,6 +31,9 @@ import { NewsUpdateComponent } from './news-update/news-update.component';
 import { PhotoalbumTableComponent } from './photoalbum-table/photoalbum-table.component';
 import { PhotoalbumCreateComponent } from './photoalbum-create/photoalbum-create.component';
 import { PhotoalbumComponent } from './photoalbum/photoalbum.component';
+import { PublicationComponent } from './publication/publication.component';
+import { PublicationTableComponent } from './publication-table/publication-table.component';
+import { PublicationCreateComponent } from './publication-create/publication-create.component';
 
 
 @NgModule({
@@ -57,7 +60,10 @@ import { PhotoalbumComponent } from './photoalbum/photoalbum.component';
     NewsUpdateComponent,
     PhotoalbumTableComponent,
     PhotoalbumCreateComponent,
-    PhotoalbumComponent
+    PhotoalbumComponent,
+    PublicationComponent,
+    PublicationTableComponent,
+    PublicationCreateComponent
   ],
   imports: [
     CommonModule,
