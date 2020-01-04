@@ -1,3 +1,4 @@
+import { CrudOperationsService } from './../services/crud-operations.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PublicationCreateComponent implements OnInit {
 
-  constructor() { }
+  baseURL = "http://localhost:3000/api/publications";
+  documents = [];
+
+
+  constructor(private crudService: CrudOperationsService) { }
 
   ngOnInit() {
   }
 
+  createSubmit(fCreate) {
+    
+    const fd = new FormData(fCreate);
+    this.crudService.create(this.baseURL, fd)
+      .subscribe(
+        res => {
+          console.log(res);
+        }
+        , err => {
+          console.log(err);
+        });
+  }
 }
