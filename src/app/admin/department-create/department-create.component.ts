@@ -1,6 +1,7 @@
 import { CrudOperationsService } from './../services/crud-operations.service';
 import {  } from 'events';
 import { Component, OnInit , Output,EventEmitter} from '@angular/core';
+import { Subdepartment } from '../common/subdepartment';
 
 @Component({
   selector: 'app-department-create',
@@ -49,8 +50,11 @@ export class DepartmentCreateComponent implements OnInit {
   addSubdepartment(e){
     e.stopPropagation();
     this.additionalHieght.emit(this.subDepartmentHeight);
-    this.subdepartments.push(this.subdepartment);
-    //this.ngDoCheck();
+    const newSubDepeartment = new Subdepartment(
+      this.subdepartment.nameEn,this.subdepartment.descriptionEn,
+      this.subdepartment.nameAr, this.subdepartment.descriptionAr
+    );
+    this.subdepartments.push(newSubDepeartment);
     console.log(this.subdepartment ,this.subdepartments);
    
   }
